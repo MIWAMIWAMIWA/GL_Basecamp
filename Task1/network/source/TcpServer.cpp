@@ -181,7 +181,7 @@ void TcpServer::handlingAcceptLoop() {
   }
 
   if(_status == status::up)
-    sleep(1);  //does not break anything, but much less usage of cpu
+    usleep(1000);  //does not break anything, but much less usage of cpu
     thread_pool.addJob([this](){handlingAcceptLoop();});
 }
 
@@ -215,7 +215,7 @@ void TcpServer::waitingDataLoop() {
   }
 
   if(_status == status::up)
-    sleep(1); //does not break anything, but much less usage of cpu
+    usleep(1000); //does not break anything, but much less usage of cpu
     thread_pool.addJob([this](){waitingDataLoop();});
 }
 
