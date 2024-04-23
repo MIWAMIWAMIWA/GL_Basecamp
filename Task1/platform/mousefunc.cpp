@@ -28,7 +28,7 @@ void getMouseCoordinates(int *x, int *y) {
     XEvent event;
     XQueryPointer(display, root_window, &event.xbutton.root, &event.xbutton.window,
                   &event.xbutton.x_root, &event.xbutton.y_root,
-                  NULL, NULL,
+                  &event.xbutton.x_root, &event.xbutton.y, //fixed crash
                   &event.xbutton.state);
 
     *x = event.xbutton.x_root;
